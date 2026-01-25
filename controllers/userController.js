@@ -1,7 +1,4 @@
 const User = require('../models/userModel');
-const cloudinary = require('../config/cloudinary')
-
-const User = require('../models/userModel');
 const cloudinary = require('../config/cloudinary');
 
 const uploadImage = async (file) => {

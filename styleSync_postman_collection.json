@@ -1,0 +1,332 @@
+{
+    "info": {
+        "_postman_id": "stylesync-collection",
+        "name": "StyleSync API",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Users",
+            "item": [
+                {
+                    "name": "Create User",
+                    "request": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "name",
+                                    "value": "John Doe",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "location",
+                                    "value": "New York",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "stylePreferences",
+                                    "value": "minimalist",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "profilePicture",
+                                    "type": "file",
+                                    "src": []
+                                }
+                            ]
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/api/users",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "users"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Clothes",
+            "item": [
+                {
+                    "name": "Add Clothes",
+                    "request": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "name",
+                                    "value": "Blue Shirt",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "category",
+                                    "value": "top",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "color",
+                                    "value": "blue",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "season",
+                                    "value": "Summer",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "images",
+                                    "type": "file",
+                                    "src": []
+                                }
+                            ]
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/api/clothes",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "clothes"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Accessories",
+            "item": [
+                {
+                    "name": "Add Accessory",
+                    "request": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "name",
+                                    "value": "Gold Chain",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "type",
+                                    "value": "jewelry",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "color",
+                                    "value": "gold",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "compatibleWith",
+                                    "value": "top",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "image",
+                                    "type": "file",
+                                    "src": []
+                                }
+                            ]
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/api/accessories",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "accessories"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Outfits",
+            "item": [
+                {
+                    "name": "Generate Outfit",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"userId\": \"USER_ID_HERE\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/api/outfits/generate",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "outfits",
+                                "generate"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Get All Outfits",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/api/outfits",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "outfits"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Add Outfit (Manual)",
+                    "request": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "name",
+                                    "value": "My Outfit",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "clothingItems",
+                                    "value": "[\"ID1\", \"ID2\"]",
+                                    "type": "text"
+                                }
+                            ]
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/api/outfits",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "outfits"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Laundry",
+            "item": [
+                {
+                    "name": "Add Laundry",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"items\": [\"CLOTHES_ID\"],\n    \"scheduledDate\": \"2026-01-25\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/api/laundry",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "laundry"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Update Laundry Status",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"status\": \"washing\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/api/laundry/LAUNDRY_ID",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "laundry",
+                                "LAUNDRY_ID"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Analytics",
+            "item": [
+                {
+                    "name": "Wardrobe Analytics & Donations",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/api/outfits/analytics",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "outfits",
+                                "analytics"
+                            ]
+                        }
+                    }
+                }
+            ]
+        }
+    ],
+    "variable": [
+        {
+            "key": "baseUrl",
+            "value": "http://localhost:3001",
+            "type": "string"
+        }
+    ]
+}
