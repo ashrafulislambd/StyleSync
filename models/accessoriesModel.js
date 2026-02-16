@@ -16,6 +16,7 @@ const accessoriesSchema = new mongoose.Schema({
   wearCount: { type: Number, default: 0 },
   lastWorn: Date,
   status: { type: String, enum: ["active", "donated"], default: "active" },
-});
+  user: { type: mongoose.Schema.Types.ObjectId, ref: 'StyleSyncUser', required: true }
+}, { timestamps: true });
 
 module.exports = mongoose.model("Accessories", accessoriesSchema);

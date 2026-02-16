@@ -18,7 +18,7 @@ const uploadImages = async (files) => {
 
 exports.addOutfit = async (req, res) => {
     try {
-        const { name, clothingItems, accessories, weatherCondition, wearCount } = req.body;
+        const { name, clothingItems, accessories, weatherCondition, wearCount, user } = req.body;
         const images = await uploadImages(req.files);
 
         const outfit = new Outfit({
@@ -27,7 +27,8 @@ exports.addOutfit = async (req, res) => {
             accessories: JSON.parse(accessories || '[]'),
             weatherCondition,
             outfitImages: images,
-            wearCount: wearCount || 0
+            wearCount: wearCount || 0,
+            user
         });
 
         await outfit.save();
@@ -46,11 +47,11 @@ exports.generateOutfit = async (req, res) => {
         const weather = await Weather.findOne({ location: user.location }).sort({ date: -1 });
         const currentCondition = weather ? weather.conditions : 'sunny'; // Default
 
-        // Get available clothes (not donated/sold)
-        let clothes = await Clothes.find({ status: 'active' });
+        // Get available clothes (not donated/sold) for this user
+        let clothes = await Clothes.find({ status: 'active', user: userId });
 
         // Filter by laundry
-        const laundry = await Laundry.find({ status: { $ne: 'done' } }).select('items');
+        const laundry = await Laundry.find({ status: { $ne: 'done' }, user: userId }).select('items');
         const laundryItemIds = laundry.flatMap(l => l.items.map(i => i.toString()));
         clothes = clothes.filter(c => !laundryItemIds.includes(c._id.toString()));
 
@@ -100,7 +101,7 @@ exports.generateOutfit = async (req, res) => {
         // Or if it says 'formal', it goes with formal clothes?
         // Prompt says "compatibleWith ... [clothes category]".
         // So if accessory is compatible with 'top', we can include it.
-        const accessories = await Accessories.find({ status: 'active' });
+        const accessories = await Accessories.find({ status: 'active', user: userId });
         const selectedAccessories = accessories.filter(a => {
             return a.compatibleWith.some(cat => cat === selectedTop.category || cat === selectedBottom.category);
         });
@@ -110,7 +111,8 @@ exports.generateOutfit = async (req, res) => {
             accessories: selectedAccessories.map(a => a._id),
             weatherCondition: currentCondition,
             outfitImages: [], // Could generate image here but prompt says "stored... along with optional outfit imagery". I won't generate an image file.
-            wearCount: 0
+            wearCount: 0,
+            user: userId
         });
 
         await outfit.save();

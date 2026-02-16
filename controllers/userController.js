@@ -38,3 +38,53 @@ exports.createUser = async (req, res) => {
        }
 };
 
+exports.getUser = async (req, res) => {
+       try {
+              const user = await User.findById(req.params.id);
+              if (!user) return res.status(404).json({ error: 'User not found' });
+              res.json(user);
+       } catch (error) {
+              res.status(500).json({ error: error.message });
+       }
+};
+
+exports.getAllUsers = async (req, res) => {
+       try {
+              const users = await User.find();
+              res.json(users);
+       } catch (error) {
+              res.status(500).json({ error: error.message });
+       }
+};
+
+exports.updateUser = async (req, res) => {
+       try {
+              const { name, location, stylePreferences } = req.body;
+              const updateData = {};
+
+              if (name) updateData.name = name;
+              if (location) updateData.location = location;
+              if (stylePreferences) {
+                     updateData.stylePreferences = Array.isArray(stylePreferences)
+                            ? stylePreferences
+                            : stylePreferences.split(',').map(s => s.trim());
+              }
+
+              // Handle profile picture update
+              const file = req.files && req.files.length > 0 ? req.files[0] : req.file;
+              if (file) {
+                     // Delete old image from cloudinary if exists
+                     const user = await User.findById(req.params.id);
+                     if (user && user.profilePicture && user.profilePicture.public_id) {
+                            await cloudinary.uploader.destroy(user.profilePicture.public_id);
+                     }
+                     updateData.profilePicture = await uploadImage(file);
+              }
+
+              const user = await User.findByIdAndUpdate(req.params.id, updateData, { new: true });
+              if (!user) return res.status(404).json({ error: 'User not found' });
+              res.json(user);
+       } catch (error) {
+              res.status(500).json({ error: error.message });
+       }
+};
