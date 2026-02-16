@@ -1,0 +1,921 @@
+{
+    "info": {
+        "_postman_id": "stylesync-api-collection-2024",
+        "name": "StyleSync API - Complete Collection",
+        "description": "Complete API collection for StyleSync - Smart Wardrobe Management System",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Users",
+            "item": [
+                {
+                    "name": "Create User",
+                    "request": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "name",
+                                    "value": "John Doe",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "location",
+                                    "value": "Dhaka",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "stylePreferences",
+                                    "value": "minimalist,comfortable",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "profilePicture",
+                                    "type": "file",
+                                    "src": []
+                                }
+                            ]
+                        },
+                        "url": {
+                            "raw": "http://localhost:3001/api/users",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3001",
+                            "path": [
+                                "api",
+                                "users"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get All Users",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3001/api/users",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3001",
+                            "path": [
+                                "api",
+                                "users"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get User by ID",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3001/api/users/:userId",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3001",
+                            "path": [
+                                "api",
+                                "users",
+                                ":userId"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "userId",
+                                    "value": "YOUR_USER_ID"
+                                }
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Update User",
+                    "request": {
+                        "method": "PUT",
+                        "header": [],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "name",
+                                    "value": "John Updated",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "location",
+                                    "value": "Chittagong",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "stylePreferences",
+                                    "value": "formal,minimalist",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "profilePicture",
+                                    "type": "file",
+                                    "src": []
+                                }
+                            ]
+                        },
+                        "url": {
+                            "raw": "http://localhost:3001/api/users/:userId",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3001",
+                            "path": [
+                                "api",
+                                "users",
+                                ":userId"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "userId",
+                                    "value": "YOUR_USER_ID"
+                                }
+                            ]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Clothes",
+            "item": [
+                {
+                    "name": "Add Clothes",
+                    "request": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "name",
+                                    "value": "Blue T-Shirt",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "category",
+                                    "value": "top",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "color",
+                                    "value": "blue",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "season",
+                                    "value": "[\"Summer\", \"Spring\"]",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "occasion",
+                                    "value": "[\"casual\", \"outdoor\"]",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "user",
+                                    "value": "YOUR_USER_ID",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "images",
+                                    "type": "file",
+                                    "src": []
+                                }
+                            ]
+                        },
+                        "url": {
+                            "raw": "http://localhost:3001/api/clothes",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3001",
+                            "path": [
+                                "api",
+                                "clothes"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get All Clothes",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3001/api/clothes?userId=YOUR_USER_ID",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3001",
+                            "path": [
+                                "api",
+                                "clothes"
+                            ],
+                            "query": [
+                                {
+                                    "key": "userId",
+                                    "value": "YOUR_USER_ID"
+                                }
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Clothes by ID",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3001/api/clothes/:clothesId",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3001",
+                            "path": [
+                                "api",
+                                "clothes",
+                                ":clothesId"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "clothesId",
+                                    "value": "YOUR_CLOTHES_ID"
+                                }
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Update Clothes",
+                    "request": {
+                        "method": "PUT",
+                        "header": [],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "name",
+                                    "value": "Updated T-Shirt",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "color",
+                                    "value": "navy blue",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "images",
+                                    "type": "file",
+                                    "src": []
+                                }
+                            ]
+                        },
+                        "url": {
+                            "raw": "http://localhost:3001/api/clothes/:clothesId",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3001",
+                            "path": [
+                                "api",
+                                "clothes",
+                                ":clothesId"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "clothesId",
+                                    "value": "YOUR_CLOTHES_ID"
+                                }
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Delete Clothes",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3001/api/clothes/:clothesId",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3001",
+                            "path": [
+                                "api",
+                                "clothes",
+                                ":clothesId"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "clothesId",
+                                    "value": "YOUR_CLOTHES_ID"
+                                }
+                            ]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Accessories",
+            "item": [
+                {
+                    "name": "Add Accessory",
+                    "request": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "name",
+                                    "value": "Leather Watch",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "type",
+                                    "value": "jewelry",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "color",
+                                    "value": "brown",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "compatibleWith",
+                                    "value": "top,bottom",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "user",
+                                    "value": "YOUR_USER_ID",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "image",
+                                    "type": "file",
+                                    "src": []
+                                }
+                            ]
+                        },
+                        "url": {
+                            "raw": "http://localhost:3001/api/accessories",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3001",
+                            "path": [
+                                "api",
+                                "accessories"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get All Accessories",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3001/api/accessories?userId=YOUR_USER_ID",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3001",
+                            "path": [
+                                "api",
+                                "accessories"
+                            ],
+                            "query": [
+                                {
+                                    "key": "userId",
+                                    "value": "YOUR_USER_ID"
+                                }
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Accessory by ID",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3001/api/accessories/:accessoryId",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3001",
+                            "path": [
+                                "api",
+                                "accessories",
+                                ":accessoryId"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "accessoryId",
+                                    "value": "YOUR_ACCESSORY_ID"
+                                }
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Update Accessory",
+                    "request": {
+                        "method": "PUT",
+                        "header": [],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "name",
+                                    "value": "Updated Watch",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "color",
+                                    "value": "black",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "image",
+                                    "type": "file",
+                                    "src": []
+                                }
+                            ]
+                        },
+                        "url": {
+                            "raw": "http://localhost:3001/api/accessories/:accessoryId",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3001",
+                            "path": [
+                                "api",
+                                "accessories",
+                                ":accessoryId"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "accessoryId",
+                                    "value": "YOUR_ACCESSORY_ID"
+                                }
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Delete Accessory",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3001/api/accessories/:accessoryId",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3001",
+                            "path": [
+                                "api",
+                                "accessories",
+                                ":accessoryId"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "accessoryId",
+                                    "value": "YOUR_ACCESSORY_ID"
+                                }
+                            ]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Outfits",
+            "item": [
+                {
+                    "name": "Generate Smart Outfit",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"userId\": \"YOUR_USER_ID\"\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:3001/api/outfits/generate",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3001",
+                            "path": [
+                                "api",
+                                "outfits",
+                                "generate"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Create Manual Outfit",
+                    "request": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "name",
+                                    "value": "Casual Summer",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "clothingItems",
+                                    "value": "[\"CLOTHES_ID_1\", \"CLOTHES_ID_2\"]",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "accessories",
+                                    "value": "[\"ACCESSORY_ID_1\"]",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "weatherCondition",
+                                    "value": "sunny",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "user",
+                                    "value": "YOUR_USER_ID",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "outfitImages",
+                                    "type": "file",
+                                    "src": []
+                                }
+                            ]
+                        },
+                        "url": {
+                            "raw": "http://localhost:3001/api/outfits",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3001",
+                            "path": [
+                                "api",
+                                "outfits"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get All Outfits",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3001/api/outfits",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3001",
+                            "path": [
+                                "api",
+                                "outfits"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Outfit by ID",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3001/api/outfits/:outfitId",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3001",
+                            "path": [
+                                "api",
+                                "outfits",
+                                ":outfitId"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "outfitId",
+                                    "value": "YOUR_OUTFIT_ID"
+                                }
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Update Outfit",
+                    "request": {
+                        "method": "PATCH",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"wearCount\": 5\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:3001/api/outfits/:outfitId",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3001",
+                            "path": [
+                                "api",
+                                "outfits",
+                                ":outfitId"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "outfitId",
+                                    "value": "YOUR_OUTFIT_ID"
+                                }
+                            ]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Laundry",
+            "item": [
+                {
+                    "name": "Add to Laundry",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"items\": [\"CLOTHES_ID_1\", \"CLOTHES_ID_2\"],\n    \"scheduledDate\": \"2024-02-20\",\n    \"user\": \"YOUR_USER_ID\"\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:3001/api/laundry",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3001",
+                            "path": [
+                                "api",
+                                "laundry"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get All Laundry",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3001/api/laundry?userId=YOUR_USER_ID",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3001",
+                            "path": [
+                                "api",
+                                "laundry"
+                            ],
+                            "query": [
+                                {
+                                    "key": "userId",
+                                    "value": "YOUR_USER_ID"
+                                }
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Update Laundry Status",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"status\": \"done\"\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:3001/api/laundry/:laundryId",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3001",
+                            "path": [
+                                "api",
+                                "laundry",
+                                ":laundryId"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "laundryId",
+                                    "value": "YOUR_LAUNDRY_ID"
+                                }
+                            ]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Weather",
+            "item": [
+                {
+                    "name": "Fetch Weather from API",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3001/api/weather/fetch/:location",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3001",
+                            "path": [
+                                "api",
+                                "weather",
+                                "fetch",
+                                ":location"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "location",
+                                    "value": "Dhaka"
+                                }
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Cached Weather",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3001/api/weather?location=Dhaka",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3001",
+                            "path": [
+                                "api",
+                                "weather"
+                            ],
+                            "query": [
+                                {
+                                    "key": "location",
+                                    "value": "Dhaka"
+                                }
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Add Manual Weather",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"location\": \"Dhaka\",\n    \"conditions\": \"sunny\",\n    \"date\": \"2024-02-16\"\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:3001/api/weather",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3001",
+                            "path": [
+                                "api",
+                                "weather"
+                            ]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Analytics",
+            "item": [
+                {
+                    "name": "Get Wardrobe Analytics",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3001/api/analytics/wardrobe",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3001",
+                            "path": [
+                                "api",
+                                "analytics",
+                                "wardrobe"
+                            ]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        }
+    ]
+}
