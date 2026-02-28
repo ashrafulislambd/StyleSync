@@ -1,11 +1,11 @@
 const express = require('express');
+const cors = require('cors');
 const app = express();
 
 require('dotenv').config();
 const PORT = process.env.PORT || 3000;
 
-
-
+app.use(cors({ origin: 'http://localhost:5173', credentials: true }));
 app.use(express.json()); //allows your application to read and parse JSON data sent in the request body.
 
 
@@ -26,7 +26,7 @@ app.use('/api/laundry', laundryRoutes);
 app.use('/api/weather', weatherRoutes);
 app.use('/api/analytics', analyticsRoutes);
 
-
+ 
 //monngodb connection
 const mongoose = require('mongoose');
 mongoose.connect(process.env.MongoDB_URI).then(() => {
